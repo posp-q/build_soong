@@ -20,6 +20,8 @@ import (
 	"runtime"
 	"strings"
 
+	"potato/soong/android"
+
 	"github.com/google/blueprint/proptools"
 )
 
@@ -126,6 +128,9 @@ type variableProperties struct {
 			Static_libs  []string
 			Srcs         []string
 		}
+
+		// include Potato variables
+		Potato android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -287,6 +292,9 @@ type productVariables struct {
 	ProductHiddenAPIStubs       []string `json:",omitempty"`
 	ProductHiddenAPIStubsSystem []string `json:",omitempty"`
 	ProductHiddenAPIStubsTest   []string `json:",omitempty"`
+
+	// include Potato variables
+	Potato android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
